@@ -1,5 +1,8 @@
 import express from 'express'
 import bodyParser from 'body-parser'
+// For accessing env variable in app
+import myenv from 'dotenv'
+myenv.config()
 // import mongoose from 'mongoose'
 import cors from 'cors'
 import { mongoRun } from './db.js'
@@ -18,6 +21,7 @@ app.use(cors());
 app.get('/' , (req,res)=>{
     res.send("hi there")
 })
+
 //path localhost:5000/posts
 app.use('/posts' , postRoutes)
 const PORT = process.env.PORT ||5000

@@ -1,5 +1,7 @@
 import { db } from "../db.js";
-const blogs = db.collection('blogs')
+import myenv from 'dotenv'
+myenv.config();
+const blogs = db.collection(process.env.REACT_APP_DATABSE_COLLECTION)
 export const getPosts =async(req,res)=>{
 try {
     const data = blogs.find({});
